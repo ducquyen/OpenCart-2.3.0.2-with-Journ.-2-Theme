@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+	<name>Whatsapp</name>
+	<code>Whatsapp</code>
+	<version>1.0.0</version>
+	<author>Opencart Master</author>
+	<link>https://opencartmaster.com.br</link>
+	
+	<file path="catalog/view/theme/*/template/common/footer.tpl">
+		<operation>
+			<search><![CDATA[</body></html>]]></search>
+			<add position="before"><![CDATA[
+<?php  if($whats_status) { ?>
+<a href="https://web.whatsapp.com/send?phone=<?php echo $numero; ?>&text=" class="whats_box hide-on-phone" target="_blank">
+<img alt="Whatsapp" src="image/<?php echo $imagem; ?>"  class="whats_img"/> </a>
+<a href="https://api.whatsapp.com/send?phone=<?php echo $numero; ?>&text=" class="whats_box hide-on-dk" target="_blank">
+<img alt="Whatsapp" src="image/<?php echo $imagem; ?>"  class="whats_img"/> </a>
+
+<style>
+.whats_box{
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+}
+
+.whats_img{
+    border: none;
+    padding: 10px 10px 10px 10px;
+}
+
+@media (min-width: 768px) {
+  
+.hide-on-dk{display:none;}
+  
+}
+
+@media only screen and (max-width: 760px) {
+  .hide-on-phone {display: none !important; }
+}
+
+@media only screen and (min-width: 760px) and (max-width: 1024px) {
+  .hide-on-tablet {display: none !important; } 
+}
+
+</style>
+<?php  } ?>
+            ]]></add></operation>
+	</file>
+	
+		<file path="catalog/controller/common/footer.php">
+		<operation>
+			<search><![CDATA[$data['contact'] = $this->url->link('information/contact');]]></search>
+			<add position="before"><![CDATA[
+            $data['numero'] = $this->config->get('whatsmaster_numero');
+            $data['imagem'] = $this->config->get('whatsmaster_image');
+            $data['whats_status'] = $this->config->get('whatsmaster_status');
+            ]]></add></operation>
+	</file>
+
+</modification>

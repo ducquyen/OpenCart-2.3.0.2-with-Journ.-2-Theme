@@ -1,0 +1,14 @@
+---------- Date: 2019-03-17 21:10:38 ~ IP : 201.182.215.163 ----------
+REQUEST URI : /admin/index.php?route=common/filemanager&token=zTEIxehSawCO8RMqt6cNd1nxHIvPEoLx&target=input-image&thumb=thumb-image
+MOD DETAILS:
+   modFile   : /home/u933926417/domains/keddnutrition.com.br/public_html/vqmod/xml/image_crusher.xml
+   id        : Image Crusher
+   version   : 2.0.2
+   vqmver    : 2.5.1
+   author    : paddysherry.com
+
+File Name    : admin/controller/common/filemanager.php(1)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): move_uploaded_file($this->request->files['file']['tmp_name'], $directory . '/' . $filename);
+----------------------------------------------------------------------
+
+

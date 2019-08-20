@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+    <name>social_chat</name>
+    <code>social_chat</code>
+    <version>1.0</version>
+    <link>http://www.letscms.com</link>
+    <author>letscms.com</author>
+
+    <file path="catalog/controller/common/footer.php">
+        <operation error="skip" info="">
+            <search><![CDATA[$data['scripts'] = $this->document->getScripts('footer');]]></search>
+            <add position="after"><![CDATA[
+              $data['module_social_chat_status'] = $this->config->get('module_social_chat_status');
+              $data['module_social_chat_facebook'] = $this->config->get('module_social_chat_facebook');
+              $data['module_social_chat_whatsapp'] = $this->config->get('module_social_chat_whatsapp');
+              $data['module_social_chat_email'] = $this->config->get('module_social_chat_email');
+              $data['module_social_chat_call'] = $this->config->get('module_social_chat_call');
+              $data['module_social_chat_call_to_action'] = $this->config->get('module_social_chat_call_to_action');
+              $data['module_social_chat_button_color'] = $this->config->get('module_social_chat_button_color');
+              $data['module_social_chat_position'] = $this->config->get('module_social_chat_position');
+              $data['module_social_chat_order'] = $this->config->get('module_social_chat_order');
+
+
+
+              ]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/default/template/common/footer.tpl">
+        <operation error="skip" info="">
+            <search><![CDATA[</footer>]]></search>
+
+            <add position="after"><![CDATA[
+                             
+              <?php if ($module_social_chat_status) { ?>
+              <!-- WhatsHelp.io widget -->
+              <script type="text/javascript">
+                  (function () {
+                      var options = {
+                          facebook: "<?php echo $module_social_chat_facebook; ?>", // Facebook page ID
+                          whatsapp: "<?php echo $module_social_chat_whatsapp; ?>", // WhatsApp number
+                          email: "<?php echo $module_social_chat_email; ?>", // Email
+                          call: "<?php echo $module_social_chat_call; ?>", // Call phone number
+                          call_to_action: "<?php echo $module_social_chat_call_to_action; ?>", // Call to action
+                          button_color: "<?php echo $module_social_chat_button_color; ?>", // Color of button
+                          position: "<?php echo $module_social_chat_position; ?>", // Position may be 'right' or 'left'
+                          order: "<?php echo $module_social_chat_order; ?>" // Order of buttons
+                      };
+                      var proto = document.location.protocol, host = "whatshelp.io", url = proto + "//static." + host;
+                      var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
+                      s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
+                      var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+                  })();
+              </script>
+
+             <?php } ?>
+              ]]></add>
+        </operation>
+    </file>
+
+</modification>

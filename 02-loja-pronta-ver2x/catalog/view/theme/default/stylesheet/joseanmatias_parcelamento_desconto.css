@@ -1,0 +1,45 @@
+.parcelamento ul,.parcelamento-list ul{
+    list-style: none;
+    padding:0;
+    margin:0;
+}
+.product-thumb .parcelamento-list{
+    font-size:12px;
+    font-weight:normal;
+    font-weight: bold;
+}
+.product-thumb .parcelamento-list li{
+    position:relative;
+    padding-left: 20px;
+}
+.product-thumb .parcelamento-list li:before{
+    position:absolute;
+    left:0;
+    top:50%;
+    margin-top:-10px;
+    height:20px;
+    width:30px;
+    font-family: 'Glyphicons Halflings';
+    content:"\e177";
+}
+.product-thumb .boleto-discount{
+    font-size:14px;
+    line-height: 15px;
+    padding-top:10px;
+    font-weight: bold;
+}
+.product-thumb .boleto-discount, .product-thumb .boleto-discount *{
+    display:block;
+}
+.product-thumb .boleto-discount .price-new{
+    font-size: 20px;
+    color:#23a1d1;
+}
+.boleto-discount-product {
+    font-size: 15px;
+}
+.boleto-discount-product .price-new{
+    display:inline;
+    font-size: 22px;
+    font-weight: 500;
+}

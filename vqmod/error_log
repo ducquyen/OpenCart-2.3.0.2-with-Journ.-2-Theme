@@ -1,0 +1,26 @@
+[25-Aug-2018 03:56:24 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: Could not load model shipping/correios!' in /home/tmnetinf/lojademo.tmnetinfo.com/vqmod/vqcache/vq2-system_storage_modification_system_engine_loader.php:70
+Stack trace:
+#0 /home/tmnetinf/lojademo.tmnetinfo.com/system/storage/modification/catalog/controller/product/product.php(959): Loader->model('shipping/correi...')
+#1 [internal function]: ControllerProductProduct->quote()
+#2 /home/tmnetinf/lojademo.tmnetinfo.com/vqmod/vqcache/vq2-system_storage_modification_system_engine_action.php(51): call_user_func_array(Array, Array)
+#3 /home/tmnetinf/lojademo.tmnetinfo.com/catalog/controller/startup/router.php(25): Action->execute(Object(Registry))
+#4 [internal function]: ControllerStartupRouter->index()
+#5 /home/tmnetinf/lojademo.tmnetinfo.com/vqmod/vqcache/vq2-system_storage_modification_system_engine_action.php(51): call_user_func_array(Array, Array)
+#6 /home/tmnetinf/lojademo.tmnetinfo.com/system/engine/front.php(59): Action->execute(Object(Registry))
+#7 /home/tmn in /home/tmnetinf/lojademo.tmnetinfo.com/vqmod/vqcache/vq2-system_storage_modification_system_engine_loader.php on line 70
+[25-Aug-2018 03:56:28 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: Could not load model shipping/correios!' in /home/tmnetinf/lojademo.tmnetinfo.com/vqmod/vqcache/vq2-system_storage_modification_system_engine_loader.php:70
+Stack trace:
+#0 /home/tmnetinf/lojademo.tmnetinfo.com/system/storage/modification/catalog/controller/product/product.php(959): Loader->model('shipping/correi...')
+#1 [internal function]: ControllerProductProduct->quote()
+#2 /home/tmnetinf/lojademo.tmnetinfo.com/vqmod/vqcache/vq2-system_storage_modification_system_engine_action.php(51): call_user_func_array(Array, Array)
+#3 /home/tmnetinf/lojademo.tmnetinfo.com/catalog/controller/startup/router.php(25): Action->execute(Object(Registry))
+#4 [internal function]: ControllerStartupRouter->index()
+#5 /home/tmnetinf/lojademo.tmnetinfo.com/vqmod/vqcache/vq2-system_storage_modification_system_engine_action.php(51): call_user_func_array(Array, Array)
+#6 /home/tmnetinf/lojademo.tmnetinfo.com/system/engine/front.php(59): Action->execute(Object(Registry))
+#7 /home/tmn in /home/tmnetinf/lojademo.tmnetinfo.com/vqmod/vqcache/vq2-system_storage_modification_system_engine_loader.php on line 70
+[20-Oct-2018 17:55:15 UTC] PHP Fatal error:  Cannot redeclare modification() (previously declared in /home/tmnetinf/lojademo.tmnetinfo.com/system/startup.php:68) in /home/tmnetinf/lojademo.tmnetinfo.com/vqmod/vqcache/vq2-system_startup.php on line 86
+[20-Oct-2018 17:55:16 UTC] PHP Fatal error:  Cannot redeclare modification() (previously declared in /home/tmnetinf/lojademo.tmnetinfo.com/system/startup.php:68) in /home/tmnetinf/lojademo.tmnetinfo.com/vqmod/vqcache/vq2-system_startup.php on line 86
+[20-Oct-2018 17:55:16 UTC] PHP Fatal error:  Cannot redeclare modification() (previously declared in /home/tmnetinf/lojademo.tmnetinfo.com/system/startup.php:68) in /home/tmnetinf/lojademo.tmnetinfo.com/vqmod/vqcache/vq2-system_startup.php on line 86
+[25-Dec-2018 22:07:02 UTC] PHP Fatal error:  Class 'Config' not found in /home/tmnetinf/lojademo.tmnetinfo.com/system/framework.php on line 121
+[22-Feb-2019 21:23:52 UTC] PHP Warning:  unlink(/home/tmnetinf/lojademo.tmnetinfo.com/system/storage/cache/cache.currency.1550853934): No such file or directory in /home/tmnetinf/lojademo.tmnetinfo.com/system/library/cache/file.php on line 17
+[28-Feb-2019 19:36:47 UTC] PHP Fatal error:  Class 'Loader' not found in /home/tmnetinf/lojademo.tmnetinfo.com/system/framework.php on line 143

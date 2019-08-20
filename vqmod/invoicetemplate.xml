@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+	<id>INVOICE TEMPLATE</id>
+	<version>0.1.2.3</version>
+	<vqmver required="true">2.5.0</vqmver>
+	<author>aauwwo</author>
+	
+	<file name="admin/controller/sale/order.php">
+		<operation>
+			<search position="after"><![CDATA[
+			$data['title'] = $this->language->get('text_invoice');
+			]]></search>
+			<add><![CDATA[
+		$data['name'] = $this->config->get('config_name');
+			]]></add>
+		</operation>
+		<operation>
+			<search position="after"><![CDATA[
+			$data['base'] = HTTPS_SERVER;
+			]]></search>
+			<add><![CDATA[
+			$server = HTTPS_CATALOG;
+			]]></add>
+		</operation>
+		<operation>
+			<search position="after"><![CDATA[
+			$data['base'] = HTTP_SERVER;
+			]]></search>
+			<add><![CDATA[
+			$server = HTTP_CATALOG;
+			]]></add>
+		</operation>
+		<operation>
+			<search position="before" index="2"><![CDATA[
+			if ($order_info['invoice_no']) {
+			]]></search>
+			<add><![CDATA[
+				if (is_file(DIR_IMAGE . $this->config->get('config_logo'))) {
+					$data['logo'] = $server . 'image/' . $this->config->get('config_logo');
+				} else {
+					$data['logo'] = '';
+				}
+			]]></add>
+		</operation>
+	</file>
+
+</modification>

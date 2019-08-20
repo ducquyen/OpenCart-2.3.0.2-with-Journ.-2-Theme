@@ -1,0 +1,133 @@
+2018-12-25 23:15:52 - 
+ERROR: FILE NOT FOUND!
+FILE: /home/tmnetinf/lojademo.tmnetinfo.com/system/library/template/twig.php
+MOD: Journal2
+
+ERROR: FILE NOT FOUND!
+FILE: /home/tmnetinf/lojademo.tmnetinfo.com/system/library/template/twig.php
+MOD: Journal2
+
+ERROR: FILE NOT FOUND!
+FILE: /home/tmnetinf/lojademo.tmnetinfo.com/system/library/template/basic.php
+MOD: Journal2
+
+ERROR: FILE NOT FOUND!
+FILE: /home/tmnetinf/lojademo.tmnetinfo.com/admin/controller/common/menu.php
+MOD: Journal2
+
+ERROR: FILE NOT FOUND!
+FILE: /home/tmnetinf/lojademo.tmnetinfo.com/admin/view/template/common/menu.tpl
+MOD: Journal2
+
+ERROR: FILE NOT FOUND!
+FILE: /home/tmnetinf/lojademo.tmnetinfo.com/admin/view/template/common/column_left.twig
+MOD: Journal2
+
+ERROR: CODE NOT FOUND!
+FILE: admin/controller/tool/backup.php
+CODE: $this->db->query(substr($sql, 0, strlen($sql) -2));
+MOD: Journal2
+
+ERROR: CODE NOT FOUND!
+FILE: admin/controller/tool/backup.php
+CODE: if (substr($line, 0, 14) == 'TRUNCATE TABLE' || substr($line, 0, 11) == 'INSERT INTO') {
+MOD: Journal2
+
+ERROR: FILE NOT FOUND!
+FILE: /home/tmnetinf/lojademo.tmnetinfo.com/admin/view/template/tool/backup.twig
+MOD: Journal2
+
+ERROR: CODE NOT FOUND!
+FILE: catalog/model/tool/image.php
+CODE: return $this->config->get('config_ssl') . 'image/' . $new_image;
+MOD: Journal2
+
+ERROR: CODE NOT FOUND!
+FILE: catalog/controller/product/product.php
+CODE: $data['popup'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height'));
+MOD: Journal2
+
+ERROR: FILE NOT FOUND!
+FILE: /home/tmnetinf/lojademo.tmnetinfo.com/catalog/controller/feed/google_sitemap.php
+MOD: Journal2
+
+ERROR: FILE NOT FOUND!
+FILE: /home/tmnetinf/lojademo.tmnetinfo.com/catalog/controller/common/seo_url.php
+MOD: Journal2
+
+ERROR: CODE NOT FOUND!
+FILE: admin/view/template/common/filemanager.tpl
+CODE: <?php } else { ?>
+MOD: Journal2
+
+ERROR: FILE NOT FOUND!
+FILE: /home/tmnetinf/lojademo.tmnetinfo.com/admin/view/template/common/filemanager.twig
+MOD: Journal2
+
+ERROR: CODE NOT FOUND!
+FILE: catalog/controller/common/maintenance.php
+CODE: if (($route != 'payment' && $route != 'api') && !$this->user->isLogged()) {
+MOD: Journal2
+
+ERROR: CODE NOT FOUND!
+FILE: catalog/controller/startup/maintenance.php
+CODE: if (($route != 'payment' && $route != 'api') && !$this->user->isLogged()) {
+MOD: Journal2
+
+ERROR: CODE NOT FOUND!
+FILE: catalog/controller/startup/maintenance.php
+CODE: if ((substr($route, 0, 17) != 'extension/payment' && substr($route, 0, 3) != 'api') && !in_array($route, $ignore) && !$this->user->isLogged()) {
+MOD: Journal2
+
+ERROR: CODE NOT FOUND!
+FILE: catalog/view/theme/journal2/template/account/order_info.tpl
+CODE: <div class="buttons clearfix">
+MOD: Boleto Banco do Brasil - Segunda Via
+
+ERROR: CODE NOT FOUND!
+FILE: catalog/view/theme/journal2/template/account/order_info.tpl
+CODE: <div class="buttons clearfix">
+MOD: Boleto Caixa - Segunda Via
+
+ERROR: CODE NOT FOUND!
+FILE: admin/controller/common/filemanager.php
+CODE: if (substr(str_replace('\\', '/', realpath($directory . '/' . $filter_name)), 0, strlen(DIR_IMAGE . 'catalog')) == DIR_IMAGE . 'catalog') {
+MOD: Fix Bugs for OpenCart 2.3
+
+ERROR: CODE NOT FOUND!
+FILE: catalog/view/theme/journal2/template/common/header.tpl
+CODE: <script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
+MOD: Máscara para campos Brasil
+
+ERROR: CODE NOT FOUND!
+FILE: catalog/view/theme/default/template/checkout/guest_shipping.tpl
+CODE: $('#collapse-payment-address select[name=\'country_id\']').trigger('change');
+MOD: Máscara para campos Brasil
+
+ERROR: CODE NOT FOUND!
+FILE: catalog/view/theme/journal2/template/checkout/guest_shipping.tpl
+CODE: $('#collapse-payment-address select[name=\'country_id\']').trigger('change');
+MOD: Máscara para campos Brasil
+
+ERROR: CODE NOT FOUND!
+FILE: catalog/view/theme/default/template/checkout/shipping_address.tpl
+CODE: $('#collapse-payment-address select[name=\'country_id\']').trigger('change');
+MOD: Máscara para campos Brasil
+
+ERROR: CODE NOT FOUND!
+FILE: catalog/view/theme/journal2/template/checkout/shipping_address.tpl
+CODE: $('#collapse-payment-address select[name=\'country_id\']').trigger('change');
+MOD: Máscara para campos Brasil
+
+ERROR: FILE NOT FOUND!
+FILE: /home/tmnetinf/lojademo.tmnetinfo.com/admin/view/template/catalog/product_list.twig
+MOD: Quick Enable/Disable Product
+
+ERROR: CODE NOT FOUND!
+FILE: catalog/view/theme/journal2/template/account/order_info.tpl
+CODE: <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
+MOD: Status do Pedido Interativo
+
+ERROR: FILE NOT FOUND!
+FILE: /home/tmnetinf/lojademo.tmnetinfo.com/catalog/language/portuguese-br/portuguese-br.php
+MOD: Status do Pedido Interativo

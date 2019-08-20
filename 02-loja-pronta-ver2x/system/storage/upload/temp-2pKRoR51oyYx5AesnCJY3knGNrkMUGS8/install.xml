@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+    <code>Josean Matias</code>
+    <name>Parcelamento + Desconto boleto</name>
+    <version>2.3.x</version>
+    <author>Josean Matias</author>
+    <link></link>
+
+    <file path="catalog/controller/common/header.php">
+        <operation error="skip">
+            <search><![CDATA[public function index() {]]>
+            </search>
+            <add position="after"><![CDATA[$this->document->addStyle('catalog/view/theme/default/stylesheet/joseanmatias_parcelamento_desconto.css');]]>
+            </add>
+        </operation>
+    </file>
+
+    <file path="catalog/controller/product/product.php">
+        <operation error="skip">
+            <search><![CDATA[$data['discounts'] = array();]]>
+            </search>
+            <add position="before"><![CDATA[
+                $product_info['product_single'] = true;
+                $response = $this->load->controller('extension/module/joseanmatias_parcelamento/listview', $product_info);
+                $data['parcelamento'] = $response['parcelamento'];
+                $data['boleto'] = $response['boleto'];
+            ]]>
+            </add>
+        </operation>
+
+        <operation error="skip" info="Produtos relacionados">
+            <search><![CDATA[$data['products'][] = array(]]>
+            </search>
+            <add position="after"><![CDATA['parcelamento' => $this->load->controller('extension/module/joseanmatias_parcelamento/listview', $result),]]>
+            </add>
+        </operation>
+    </file>
+
+    <file path="catalog/controller/product/{search,category,manufacturer,special}.php">
+        <operation error="skip">
+            <search><![CDATA[$data['products'][] = array(]]>
+            </search>
+            <add position="after"><![CDATA['parcelamento' => $this->load->controller('extension/module/joseanmatias_parcelamento/listview', $result),]]>
+            </add>
+        </operation>
+    </file>
+
+    <file path="catalog/controller/extension/module/{latest,bestseller,special}.php">
+        <operation error="skip">
+            <search><![CDATA[$data['products'][] = array(]]>
+            </search>
+            <add position="after"><![CDATA['parcelamento' => $this->load->controller('extension/module/joseanmatias_parcelamento/listview', $result),]]>
+            </add>
+        </operation>
+    </file>
+	
+	<file path="catalog/controller/extension/module/featured.php">
+        <operation error="skip">
+            <search><![CDATA[$data['products'][] = array(]]>
+            </search>
+            <add position="after"><![CDATA['parcelamento' => $this->load->controller('extension/module/joseanmatias_parcelamento/listview', $product_info),]]>
+            </add>
+        </operation>
+    </file>	
+        <file path="catalog/controller/module/{journal2_custom_sections,journal2_carousel,ripland_featured}.php">
+        <operation error="skip">
+            <search><![CDATA[$product_data = array(]]>
+            </search>
+            <add position="after"><![CDATA['parcelamento' => $this->load->controller('extension/module/joseanmatias_parcelamento/listview', $product),]]>
+            </add>
+        </operation>
+    </file>
+
+    <file path="catalog/view/theme/*/template/product/product.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php if ($tax) { ?>]]>
+            </search>
+            <add position="before"><![CDATA[
+                <div class="parcelamento parcelamento-page"><?php echo $parcelamento ?></div>
+                <?php if ($boleto) { ?>
+                    <small class="boleto-discount-product"><?php echo $boleto; ?></small><br><br>
+                <?php } ?>
+            ]]>
+            </add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $footer; ?>]]>
+            </search>
+            <add position="before"><![CDATA[
+                <script type="text/javascript">
+                    var price_update = function() {
+                        $.ajax({
+                            type: 'POST',
+                            url: 'index.php?route=extension/module/joseanmatias_parcelamento/price_update&pid=<?php echo $product_id; ?>',
+                            data: $('input[type="text"], input[type="hidden"], input[type="radio"]:checked, input[type="checkbox"]:checked, select, textarea'),
+                            dataType: 'json',
+                            success: function(json) {
+                                if (json.success) {
+                                    if ($('.parcelamento-page').length > 0 && json.parcelamento) {
+                                        $('.parcelamento-page').fadeOut(150).html(json.parcelamento).fadeIn(50);
+                                    }
+                                    if ($('.boleto-discount-product').length > 0 && json.boleto) {
+                                        $('.boleto-discount-product').fadeOut(150).html(json.boleto).fadeIn(50);
+                                    }
+                                }
+                            },
+                            error: function(error) {
+                                console.log(error);
+                            }
+                        });
+                    }
+
+                    price_update(); 
+
+                    $($('#product input[type="text"], #product input[type="hidden"], #product input[type="radio"], #product input[type="checkbox"], #product select, #product textarea')).on('change', function() {
+                        price_update();
+                    });
+            </script>
+            ]]>
+            </add>
+        </operation>
+    </file>
+
+    <file path="catalog/view/theme/*/template/product/{product,search,category,manufacturer_info,special}.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php if ($product['tax']) { ?>]]>
+            </search>
+            <add position="before"><![CDATA[
+                <?php if ($product['parcelamento']['parcelamento']) { ?>
+                    <div class="parcelamento"><?php echo $product['parcelamento']['parcelamento'] ?></div>
+                <?php } ?>
+                <?php if ($product['parcelamento']['boleto']) { ?>
+                    <div class="boleto-discount"><?php echo $product['parcelamento']['boleto']; ?></div>
+                <?php } ?>
+            ]]>
+            </add>
+        </operation>
+    </file>
+
+    <file path="catalog/view/theme/*/template/extension/module/{latest,bestseller,special,featured}.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php if ($product['tax']) { ?>]]>
+            </search>
+            <add position="before"><![CDATA[
+                <?php if ($product['parcelamento']['parcelamento']) { ?>
+                    <div class="parcelamento"><?php echo $product['parcelamento']['parcelamento'] ?></div>
+                <?php } ?>
+                <?php if ($product['parcelamento']['boleto']) { ?>
+                    <div class="boleto-discount"><?php echo $product['parcelamento']['boleto']; ?></div>
+                <?php } ?>
+            ]]>
+            </add>
+        </operation>
+    </file> 
+	<file path="catalog/view/theme/journal2/template/journal2/module/{custom_sections_product,carousel_product,ripland_featured}.tpl">
+      
+            <operation error="skip">
+            <search><![CDATA[<?php if ($product['tax']) { ?>]]>
+            </search>
+            <add position="before"><![CDATA[
+
+                <?php if ($product['parcelamento']['parcelamento']) { ?>
+                    <div class="parcelamento" style="font-size:12px;
+    font-weight:normal;
+    font-weight: bold;padding-top: 5px;"><?php echo $product['parcelamento']['parcelamento'] ?></div>
+                <?php } ?>
+                <?php if ($product['parcelamento']['boleto']) { ?>
+                    <div class="boleto-discount" style="display:block; font-size:14px; line-height: 15px;padding-top:10px; font-weight: bold; text-align: center;">
+                    <?php echo $product['parcelamento']['boleto']; ?></div>
+                <?php } ?>
+                
+
+            ]]>
+            </add>
+        </operation>
+    </file>
+</modification>
